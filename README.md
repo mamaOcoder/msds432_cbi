@@ -88,17 +88,17 @@ The front-end application provides visualizations for forecasting traffic patter
 3. Enable Geocoder API for project and update Backend/Dockerfile with API Key.
 4. From the command/terminal window, execute the command:  
     *gcloud init*
-. Create database instance of PostgreSQL on GCP. Execute the command:  
+5. Create database instance of PostgreSQL on GCP. Execute the command:  
     *gcloud sql instances create cbipostgres --database-version=POSTGRES_14 --cpu=2 --memory=7680MB --region=us-central*
-5. Create SQL users on the database instance. Execute the command:  
+6. Create SQL users on the database instance. Execute the command:  
     *gcloud sql users set-password postgres --instance=cbipostgres --password=root*
-6. Create chicago_business_intelligence database. Execute the command:  
+7. Create chicago_business_intelligence database. Execute the command:  
     *gcloud sql databases create chicago_business_intelligence --instance=cbipostgres*
-7. *Note: this approach did not work. For now, just removing postgis dependencies.* Add the postgis extension. Execute the commands:  
+8. *Note: this approach did not work. For now, just removing postgis dependencies.* Add the postgis extension. Execute the commands:  
     *gcloud sql connect cbipostgres --user=postgres --quiet*  
     *CREATE EXTENSION IF NOT EXISTS postgis;*  
-8. Add the PostgreSQL instance connection name into Go code for host name.  
-9. Update cloudbuild.yaml file with project name.
+9. Add the PostgreSQL instance connection name into Go code for host name.  
+10. Update cloudbuild.yaml file with project name.
 
 
 ### Continuous Deployment
