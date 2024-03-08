@@ -4,6 +4,9 @@ from prophet import Prophet
 from prophet.plot import plot_plotly, plot_components_plotly
 import streamlit as st
 import time
+import os
+
+port = int(os.environ.get("PORT", 8088))
 
 def connect_database():
     conn = psycopg2.connect(
