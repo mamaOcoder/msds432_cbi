@@ -23,17 +23,17 @@ steps:
   args: ['run', 'deploy','go-microservice', '--image','gcr.io/msds432-cbi/go-microservice', '--region','us-central1', '--add-cloudsql-instances', 'msds432-cbi:us-central1:cbipostgres','--platform','managed', '--port','8080', '--allow-unauthenticated']
 
 # Steps to build a docker image for taxi-forecast, push it to container registry and deploy it to cloud run
-- name: "gcr.io/cloud-builders/docker"
-  args: ['build', '-t', 'gcr.io/msds432-cbi/taxi-forecast','./Frontend']
-- name: "gcr.io/cloud-builders/docker"
-  args: ['push', 'gcr.io/msds432-cbi/taxi-forecast']
+#- name: "gcr.io/cloud-builders/docker"
+#  args: ['build', '-t', 'gcr.io/msds432-cbi/taxi-forecast','./Frontend']
+#- name: "gcr.io/cloud-builders/docker"
+#  args: ['push', 'gcr.io/msds432-cbi/taxi-forecast']
 
-- name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
-  entrypoint: gcloud
-  args: ['run', 'deploy','taxi-forecast', '--image','gcr.io/msds432-cbi/taxi-forecast', '--region','us-central1', '--add-cloudsql-instances', 'msds432-cbi:us-central1:cbipostgres','--platform','managed', '--port','8088', '--allow-unauthenticated']
+#- name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+#  entrypoint: gcloud
+#  args: ['run', 'deploy','taxi-forecast', '--image','gcr.io/msds432-cbi/taxi-forecast', '--region','us-central1', '--add-cloudsql-instances', 'msds432-cbi:us-central1:cbipostgres','--platform','managed', '--port','8088', '--allow-unauthenticated']
 
 images:
 - gcr.io/msds432-cbi/go-microservice
 - gcr.io/msds432-cbi/pgadmin
-- gcr.io/msds432-cbi/taxi-forecast
+#- gcr.io/msds432-cbi/taxi-forecast
 

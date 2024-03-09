@@ -10,7 +10,7 @@ port = int(os.environ.get("PORT", 8088))
 
 def connect_database():
     conn = psycopg2.connect(
-        host='localhost',
+        host='/cloudsql/msds432-cbi:us-central1:cbipostgres',
         database='chicago_business_intelligence',
         user='postgres',
         password='root'
@@ -28,7 +28,7 @@ def check_database():
         print(e)
         return False
         
-@st.cache
+@st.cache_data
 def get_taxi():
     conn = connect_database()
     cursor = conn.cursor()
